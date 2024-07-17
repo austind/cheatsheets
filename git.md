@@ -9,3 +9,11 @@ git fetch origin
 git reset --hard origin/{branch}
 ```
 
+### Delete branch
+
+```sh
+# Local
+git branch --delete {local-branch}
+# Remote
+git push origin --delete {remote-branch}
+```
