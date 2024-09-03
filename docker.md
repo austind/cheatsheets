@@ -39,3 +39,9 @@ docker image prune
 ```sh
 docker container prune
 ```
+
+### Remove container when stopped
+
+```sh
+docker run --rm <image-name-or-id>
+```
