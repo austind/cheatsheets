@@ -45,3 +45,10 @@ docker container prune
 ```sh
 docker run --rm <image-name-or-id>
 ```
+
+### Copy files into a container
+
+Copy all files from local src/ folder to /app folder on container named boring_vaughan.
+
+```sh
+docker cp src/. boring_vaughan:/app
