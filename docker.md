@@ -63,6 +63,7 @@ Persistent storage that Docker manages, i.e., the user can't view or modify the 
 ##### Anonymous Volumes
 
 * Deleted when container is deleted, if container was created with `--rm` flag
+* Can't persist data across containers
 
 Added to `Dockerfile`:
 
