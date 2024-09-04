@@ -52,3 +52,48 @@ Copy all files from local src/ folder to /app folder on container named boring_v
 
 ```sh
 docker cp src/. boring_vaughan:/app
+```
+
+### Volumes & Bind Mounts
+
+#### Volumes
+
+Persistent storage that Docker manages, i.e., the user can't view or modify the contents.
+
+##### Anonymous Volumes
+
+* Deleted when container is deleted, if container was created with `--rm` flag
+
+Added to `Dockerfile`:
+
+```dockerfile
+VOLUME [ "/path/inside/container/to/persist" ]
+```
+
+Declared at container run time:
+
+```sh
+docker run -v /path/inside/container/to/persist myimage:tag
+```
+
+##### Named Volumes
+
+* Persists across container deletion
+
+```sh
+docker run -v volumename:/path/inside/container/to/persist myimage:tag
+```
+
+Containers run with the same `volumename` value will have access to the same data.
+
+#### Bind Mounts
+
+Persistent data that the user can access and modify.
+
+Persists the current working directory into the container's `/app` directory:
+
+```sh
+docker run -v $(cmd):/app myimage:tag
+```
+
+NOTE: Bind mounts must be an absolute path (relative paths won't work).
