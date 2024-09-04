@@ -80,12 +80,22 @@ docker run -v /path/inside/container/to/persist myimage:tag
 ##### Named Volumes
 
 * Persists across container deletion
+* Can be shared between containers
+* Survives container deletion/recreation
 
 ```sh
 docker run -v volumename:/path/inside/container/to/persist myimage:tag
 ```
 
 Containers run with the same `volumename` value will have access to the same data.
+
+##### Read-only Volumes
+
+Add `:ro` to any volume argument to make it read-only.
+
+```sh
+docker run -v $(cmd):/app:ro myimage:tag
+```
 
 #### Bind Mounts
 
